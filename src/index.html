@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Genetic algorithm - knapsack problem</title>
+  <meta name="description" content="user interface for genetic algorithm of knapsack problem">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-{{BOOTSTRAP_VERSION}}.min.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+  your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Genetic algorithm: knapsack problem</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-left">
+      <h1 class="mt-5">Knapsack problem</h1>
+      <p class="lead">
+        Resolution of the knapsack problem with genetic algorithm. Given a set of objects with weights and profits
+        and a capacity of the sack, return the set of objects that have been selected to maximize the profits.
+      </p>
+      <br>
+      <h4 class="mt-3">Problem data</h4>
+      <div class="form-group row">
+        <label for="n-objects" class="col-lg-3 col-form-label">Number of objects</label>
+        <div class="col-lg-2">
+          <input class="form-control" type="number" value="5" id="n-objects">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="weights" class="col-lg-3 col-form-label">Weights</label>
+        <div class="col-lg-4">
+          <textarea class="form-control" id="weights" rows="1" placeholder="12, 30, 10, 40, 13"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="profits" class="col-lg-3 col-form-label">Profits</label>
+        <div class="col-lg-4">
+          <textarea class="form-control" id="profits" rows="1" placeholder="10, 20, 30, 40, 50"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="capacity" class="col-lg-3 col-form-label">Capacity</label>
+        <div class="col-lg-2">
+          <input class="form-control" type="number" value="50" id="capacity">
+        </div>
+      </div>
+      <br>
+      <h4 class="mt-3">Genetic algorithm data</h4>
+      <div class="form-group row">
+        <label for="iterations" class="col-lg-3 col-form-label">Iterations: </label>
+        <div class="col-lg-2">
+          <select class="form-control" id="iterations">
+            <option>50</option>
+            <option>100</option>
+            <option>300</option>
+            <option selected="selected">500</option>
+            <option>1000</option>
+            <option>2000</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="crossover" class="col-lg-3 col-form-label">Crossover probability: </label>
+        <div class="col-lg-2">
+          <select class="form-control" id="crossover">
+            <option>0.0</option>
+            <option>0.1</option>
+            <option>0.2</option>
+            <option>0.3</option>
+            <option>0.4</option>
+            <option>0.5</option>
+            <option>0.6</option>
+            <option>0.7</option>
+            <option>0.8</option>
+            <option selected="selected">0.9</option>
+            <option>1.0</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="mutation" class="col-lg-3 col-form-label">Mutation selection probability: </label>
+        <div class="col-lg-2">
+          <select class="form-control" id="mutation">
+            <option>0.0</option>
+            <option>0.1</option>
+            <option>0.2</option>
+            <option>0.3</option>
+            <option selected="selected">0.4</option>
+            <option>0.5</option>
+            <option>0.6</option>
+            <option>0.7</option>
+            <option>0.8</option>
+            <option>0.9</option>
+            <option>1.0</option>
+          </select>
+        </div>
+        <label for="mutate-probability" class="col-lg-3 col-form-label">with probability of mutate: </label>
+        <div class="col-lg-2">
+          <input class="form-control" type="number" value="0.05" id="mutate-probability">
+        </div>
+      </div>
+      <div class="form-group">
+        <p>
+          After completing the form, to run the genetic algorithm, click the following button
+        </p>
+        <div class="col-lg-2">
+          <button type="button" class="btn btn-primary btn-sm" id="solve">Compute</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
+<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>');</script>
+<script src="js/vendor/bootstrap-{{BOOTSTRAP_VERSION}}.min.js"></script>
+<script src="js/vendor/bootstrap.bundle-{{BOOTSTRAP_VERSION}}.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+  window.ga = function () {
+    ga.q.push(arguments);
+  };
+  ga.q = [];
+  ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto');
+  ga('send', 'pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
