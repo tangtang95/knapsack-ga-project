@@ -15,7 +15,8 @@ genetic.seed = function () {
 };
 
 genetic.crossover = function (father, mother) {
-  let indexCut = Math.floor(Math.random() * Math.min(father.length, mother.length));
+  // cut the chromosome internally, cannot return the father and mother themselves
+  let indexCut = Math.floor(Math.random() * (Math.min(father.length, mother.length)-1)) + 1;
   let son = Array.from(mother.slice(0, indexCut).concat(father.slice(indexCut, father.length)));
   let daughter = Array.from(father.slice(0, indexCut).concat(mother.slice(indexCut, mother.length)));
   return [son, daughter];
